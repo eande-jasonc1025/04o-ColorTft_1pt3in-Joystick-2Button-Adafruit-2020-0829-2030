@@ -1,0 +1,36 @@
+#!/bin/sh -e
+#
+# rc.local
+#
+# This script is executed at the end of each multiuser runlevel.
+# Make sure that the script will "exit 0" on success or any other
+# value on error.
+#
+# In order to enable or disable this script just change the execution
+# bits.
+#
+# By default this script does nothing.
+
+# Print the IP address
+_IP=$(hostname -I) || true
+if [ "$_IP" ]; then
+  printf "My IP address is %s\n" "$_IP"
+fi
+
+
+# jwc 2020-0829-2200
+#
+##jwc ? need longer since on an Rpi-Zero? sleep 10
+##jwc ? sleep 30
+##jwc ? sleep 60
+##
+##jwc y sleep 300
+##jwc y sudo python3 /home/pi/01-Jwc/04o-ColorTft_1.3in-Joystick-2Button-Adafruit-2020-0829-2030/rgb_display_minipitftstats.py &
+##
+##jwc y but too long of 5': sleep 300
+sleep 10
+##jwc y sudo python3 /home/pi/01-Jwc/04o-ColorTft_1.3in-Joystick-2Button-Adafruit-2020-0829-2030/rgb_display_minipitftstats.py &
+sudo python3 /home/pi/01-Jwc/04o-ColorTft_1pt3in-Joystick-2Button-Adafruit-2020-0829-2030/rgb_display_minipitftstats.py &
+
+
+exit 0
